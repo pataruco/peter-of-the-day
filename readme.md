@@ -11,11 +11,11 @@ A media viewer for family members
 * Day
     - date: _datetime_
 
-* Media
-    - date: _datetime_
+* File
     - URL: _string_
     - type: _enumerable_
     - description: _string_
+    - name: _string_
 
 ## Relationships
 
