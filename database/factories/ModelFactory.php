@@ -22,3 +22,17 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Day::class, function (Faker\Generator $faker) {
+    return [
+        'date' => $faker->date($format = 'Y-m-d', $max = 'now'),
+        'id' => $faker->randomDigitNotNull,
+    ];
+});
+
+$factory->define(App\File::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+        'url' => $faker->imageUrl(200, 200, 'cats', true, 'Faker', true)
+    ];
+});
