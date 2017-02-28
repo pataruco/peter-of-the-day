@@ -26,7 +26,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Day::class, function (Faker\Generator $faker) {
     return [
         'date' => $faker->date($format = 'Y-m-d', $max = 'now'),
-        'id' => $faker->randomDigitNotNull,
     ];
 });
 
