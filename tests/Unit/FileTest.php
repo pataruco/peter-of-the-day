@@ -12,7 +12,9 @@ class FileTest extends TestCase
     public function a_file_belongs_to_a_day()
     {
         // given
-        $day = factory(\App\Day::class)->make();
+        $day = factory(\App\Day::class)->make([
+            'id' =>1,
+        ]);
         $file = factory(\App\File::class)->make();
         // when
         $file->day()->associate( $day );

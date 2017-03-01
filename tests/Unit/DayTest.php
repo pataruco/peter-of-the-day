@@ -28,7 +28,9 @@ class DayTest extends TestCase
     public function a_day_can_have_many_files()
     {
         // given
-       $day = factory(\App\Day::class)->make();
+       $day = factory(\App\Day::class)->make([
+           'id' => 1,
+       ]);
        $file = factory(\App\File::class)->make([
             'id' => 1000,
             'name' => 'hola',
