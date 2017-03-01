@@ -14,7 +14,7 @@ class DayController extends Controller
      */
     public function index()
     {
-        $days = Day::All();
+        $days = Day::all();
         return view( 'days/index', compact('days') );
     }
 
