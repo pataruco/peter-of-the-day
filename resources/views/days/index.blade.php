@@ -7,7 +7,7 @@
                     <li>
                         <a href="{{ $file->url }}">{{ $file->name }}</a>
                     </li>
-
+                    
                 </ul>
             @endforeach
         </li>
