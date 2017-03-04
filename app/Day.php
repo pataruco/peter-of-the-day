@@ -11,4 +11,13 @@ class Day extends Model
     {
         return $this->hasMany('App\File');
     }
+
+    public function saveFiles( $files ) {
+        foreach ( $files['files'] as  $file ) {
+            dump($file);
+        }
+    }
+
+    protected $fillable = ['date'];
+
 }
