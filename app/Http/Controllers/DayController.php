@@ -25,7 +25,7 @@ class DayController extends Controller
      */
     public function create()
     {
-        //
+        return view('days.create');
     }
 
     /**
