@@ -19,4 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/days', 'DayController@index');
+/*
+|--------------------------------------------------------------------------
+| Days
+|--------------------------------------------------------------------------
+*/
+Route::get('/days', 'DayController@index')->name('post.index');
+Route::get('/days/{id}', 'DayController@show')->name('post.show')->where('id', '[0-9]+');
