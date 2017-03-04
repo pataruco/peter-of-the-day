@@ -27,3 +27,4 @@ Route::get('/home', 'HomeController@index');
 Route::get('/days', 'DayController@index')->name('days.index');
 Route::get('/days/{id}', 'DayController@show')->name('days.show')->where('id', '[0-9]+');
 Route::get('/days/create', 'DayController@create')->name('days.create');
+Route::post('/days', 'DayController@store')->name('days.store');
