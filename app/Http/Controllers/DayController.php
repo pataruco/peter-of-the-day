@@ -15,7 +15,7 @@ class DayController extends Controller
     public function index()
     {
         $days = Day::all();
-        return view( 'days/index', compact('days') );
+        return view( 'days.index', compact('days') );
     }
 
     /**
@@ -45,9 +45,11 @@ class DayController extends Controller
      * @param  \App\Day  $day
      * @return \Illuminate\Http\Response
      */
-    public function show(Day $day)
+    public function show( $id )
     {
-        //
+        $day = Day::findOrFail( $id );
+        $files = $day->files;
+        return view('days.show', compact('day', 'files') );
     }
 
     /**
