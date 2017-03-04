@@ -1,7 +1,9 @@
+<a href="{{ route('days.create') }}">Add a new day</a>
+
 <ul>
     @foreach ($days as $day  )
         <li>
-            <a href="{{ route('post.show', [ 'id' => $day->id ] ) }}">
+            <a href="{{ route('days.show', [ 'id' => $day->id ] ) }}">
                 <time>{{ $day->date }}</time>
             </a>
 
