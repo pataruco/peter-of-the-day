@@ -1,9 +1,10 @@
 <ul>
     @foreach ($days as $day  )
         <li>
-            <a href="/days/{{ $day->id }}">
+            <a href="{{ route('post.show', [ 'id' => $day->id ] ) }}">
                 <time>{{ $day->date }}</time>
             </a>
+
             @foreach ( $day->files as $file )
                 <ul>
                     <li>
