@@ -36,7 +36,13 @@ class DayController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        if ( $request->hasfile('files') ) {
+            $day = Day::create( $request->all() );
+            $day->saveFiles( $request->allFiles() );
+        } else {
+            $day = Day::create( $request->all() );
+            dd($day);
+            }
     }
 
     /**
