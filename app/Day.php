@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use File;
+use App\File;
 
 class Day extends Model
 {
@@ -12,10 +12,14 @@ class Day extends Model
         return $this->hasMany('App\File');
     }
 
-    public function saveFiles( $files ) {
-        foreach ( $files['files'] as  $file ) {
-            $file = File::create()
-            
+    public function saveFiles( $requestAllFiles ) {
+        $fileNumber = 0;
+        foreach ( $requestAllFiles['files'] as $uploadedFile  ) {
+            $fileNumber++;
+            $file = File::create();
+            $file->filename = $this->date.'_'.$fileNumber.'.'.$uploadedFile->clientExtension();
+            // dd($file->filename);
+            $file->uploadToS3( $uploadedFile );
         }
     }
 
