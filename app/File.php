@@ -26,4 +26,14 @@ class File extends Model
         return $path;
     }
 
+    // public function nameUrl()
+    // {
+    //     $s3Bucket = 'https://peter-of-the-day.s3.amazonaws.com';
+    //     $url =  $s3Bucket.'/'.$this->setPath.'/'.$this->filename;
+    //     return $url;
+    // }
+
 }
+
+
+// https://peter-of-the-day.s3.amazonaws.com/local/2017-03-07_2.png

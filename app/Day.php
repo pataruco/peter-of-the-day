@@ -18,8 +18,8 @@ class Day extends Model
             $fileNumber++;
             $file = File::create();
             $file->filename = $this->date.'_'.$fileNumber.'.'.$uploadedFile->clientExtension();
-            // dd($file->filename);
             $file->uploadToS3( $uploadedFile );
+            // dump( $file->nameUrl);
         }
     }
 
