@@ -14,7 +14,8 @@ class DayController extends Controller
      */
     public function index()
     {
-        //
+        $days = Day::all();
+        return view( 'days.index', compact('days') );
     }
 
     /**
@@ -24,7 +25,7 @@ class DayController extends Controller
      */
     public function create()
     {
-        //
+        return view('days.create');
     }
 
     /**
@@ -35,7 +36,13 @@ class DayController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ( $request->hasfile('files') ) {
+            $day = Day::create( $request->all() );
+            $day->saveFiles( $request->allFiles() );
+        } else {
+            $day = Day::create( $request->all() );
+            dd($day);
+            }
     }
 
     /**
@@ -44,9 +51,11 @@ class DayController extends Controller
      * @param  \App\Day  $day
      * @return \Illuminate\Http\Response
      */
-    public function show(Day $day)
+    public function show( $id )
     {
-        //
+        $day = Day::findOrFail( $id );
+        $files = $day->files;
+        return view('days.show', compact('day', 'files') );
     }
 
     /**

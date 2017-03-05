@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use \App\File;
+use File;
 
 class Day extends Model
 {
@@ -11,4 +11,14 @@ class Day extends Model
     {
         return $this->hasMany('App\File');
     }
+
+    public function saveFiles( $files ) {
+        foreach ( $files['files'] as  $file ) {
+            $file = File::create()
+            
+        }
+    }
+
+    protected $fillable = ['date'];
+
 }
