@@ -17,9 +17,10 @@ class Day extends Model
         foreach ( $requestAllFiles['files'] as $uploadedFile  ) {
             $fileNumber++;
             $file = File::create();
-            $file->filename = $this->date.'_'.$fileNumber.'.'.$uploadedFile->clientExtension();
+            $file->setFilename( $this,  $fileNumber, $uploadedFile);
             $file->uploadToS3( $uploadedFile );
-            // dump( $file->nameUrl);
+            $file->setUrl();
+            $this->files()->save( $file );
         }
     }
 
