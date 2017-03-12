@@ -68,4 +68,10 @@ class File extends Model
         }
     }
 
+    public function deleteMediaOnS3()
+    {
+        $path = $this->setPath();
+        Storage::disk('s3')->delete( $path );
+    }
+
 }
