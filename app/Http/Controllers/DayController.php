@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Day;
 use Illuminate\Http\Request;
+use \App\File;
 
 class DayController extends Controller
 {
@@ -105,6 +106,8 @@ class DayController extends Controller
         $day = Day::findOrFail( $id );
         $files = $day->files;
         foreach ($files as $file ) {
+            $file = \App\File::findOrFail( $file->id );
+            $file->deleteMediaOnS3();
             $file->delete();
         }
         Day::destroy( $id );
