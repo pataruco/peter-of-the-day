@@ -24,6 +24,33 @@ class Day extends Model
         }
     }
 
+    public function getFilesByMedia( $media )
+    {
+        $files = $this->files;
+        $array = array_map( function( $file ) use ( $media ){
+            if ( $file->media_type === $media ) {
+                return $file;
+            }
+        }, end($files) );
+
+        $mediaCollection = array_filter( $array, function( $var ){
+               return !is_null( $var );
+           });
+        return $mediaCollection;
+    }
+
+    public function videos()
+    {
+        $videos = $this->getFilesByMedia('video');
+        return $videos;
+    }
+
+    public function images()
+    {
+        $images = $this->getFilesByMedia('image');
+        return $images;
+    }
+
     protected $fillable = ['date'];
 
 }
