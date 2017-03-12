@@ -103,8 +103,16 @@ class DayController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Day $day)
+    public function destroy( $id )
     {
         //
+        $day = Day::findOrFail( $id );
+        $files = $day->files;
+        foreach ($files as $file ) {
+            $file->delete();
+        }
+        Day::destroy( $id );
+        return redirect('days');
     }
 
     private function rules()
