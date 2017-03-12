@@ -83,8 +83,17 @@ class DayController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Day $day)
+    public function update(Request $request, $id)
     {
         //
+        $this->validate($request, $this->rules() );
+        $day = Day::findOrFail( $id );
+        $day->update( $request->all() );
+        if ( $request->hasfile('files') ) {
+            $day->saveFiles( $request->allFiles() );
+        }
+        return redirect()
+                ->action('DayController@show', ['id' => $day->id ]);
     }
 
     /**
