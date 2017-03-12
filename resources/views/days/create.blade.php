@@ -5,3 +5,5 @@
     {{ Form::submit('Add Days') }}
 
 {{ Form::close() }}
+
+@include('errors.error-bag')
