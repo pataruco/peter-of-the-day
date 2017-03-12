@@ -1,5 +1,6 @@
 {{ Form::label('date', 'Date') }}
-{{ Form::date('date', \Carbon\Carbon::now()) }}
+{{ Form::date('date', ( isset( $day ) ) ? $day->date : \Carbon\Carbon::now()) }}
 
-{{ Form::label('files[]', 'Choose files') }}
+
+{{ Form::label('files[]', ( isset( $day ) ) ? 'Add more files' : 'Choose Files' ) }}
 {{ Form::file('files[]',  [ 'multiple' => true ] ) }}

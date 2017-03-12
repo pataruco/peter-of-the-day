@@ -1,11 +1,11 @@
-<time>{{ $day->date }}</time>
+{!!  Form::model($day, ['route' => ['days.update', $day->id], 'method' => 'put', 'files' => true] ) !!}
+    @include('days.form')
 
-<a href="{{ route('days.edit', [ 'id' => $day->id ] ) }}">Edit</a>
-{!!  Form::model($day, ['route' => ['days.destroy', $day->id], 'method' => 'delete'] ) !!}
-        {{ Form::submit('Delete Day') }}
+    {{ Form::submit('Update Day') }}
+
 {{ Form::close() }}
 
-
+@include('errors.error-bag')
 
 @if ( isset( $images ) )
     <h2>Images</h2>

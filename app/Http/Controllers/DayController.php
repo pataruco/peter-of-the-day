@@ -57,7 +57,6 @@ class DayController extends Controller
         $files = $day->files;
         $images = $day->images();
         $videos = $day->videos();
-
         return view('days.show', compact('day', 'files', 'images', 'videos') );
     }
 
@@ -67,9 +66,13 @@ class DayController extends Controller
      * @param  \App\Day  $day
      * @return \Illuminate\Http\Response
      */
-    public function edit(Day $day)
+    public function edit( $id )
     {
-        //
+        $day = Day::with('files')->findOrFail($id);
+        $files = $day->files;
+        $images = $day->images();
+        $videos = $day->videos();
+        return view('days.edit', compact('day', 'files', 'images', 'videos') );
     }
 
     /**
@@ -79,9 +82,16 @@ class DayController extends Controller
      * @param  \App\Day  $day
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Day $day)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, $this->rules() );
+        $day = Day::findOrFail( $id );
+        $day->update( $request->all() );
+        if ( $request->hasfile('files') ) {
+            $day->saveFiles( $request->allFiles() );
+        }
+        return redirect()
+                ->action('DayController@show', ['id' => $day->id ]);
     }
 
     /**
@@ -90,9 +100,15 @@ class DayController extends Controller
      * @param  \App\Day  $day
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Day $day)
+    public function destroy( $id )
     {
-        //
+        $day = Day::findOrFail( $id );
+        $files = $day->files;
+        foreach ($files as $file ) {
+            $file->delete();
+        }
+        Day::destroy( $id );
+        return redirect('days');
     }
 
     private function rules()
