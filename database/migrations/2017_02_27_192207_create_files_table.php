@@ -20,7 +20,7 @@ class CreateFilesTable extends Migration
             $table->text('description')->nullable();
             $table->string('name')->nullable();
             $table->string('filename')->nullable();
-            $table->enum('choices', ['picture', 'video'] );
+            $table->enum('media_type', ['image', 'video'] );
             $table->integer('day_id');
         });
     }
