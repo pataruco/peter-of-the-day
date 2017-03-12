@@ -51,3 +51,13 @@ Route::put('/days/{id}', 'DayController@update')
 Route::delete('/days/{id}', 'DayController@destroy')
     ->name('days.destroy')
     ->where('id', '[0-9]+');
+
+/*
+|--------------------------------------------------------------------------
+| Files
+|--------------------------------------------------------------------------
+*/
+
+Route::delete('/files/{id}', 'FileController@destroy')
+    ->name('files.destroy')
+    ->where('id', '[0-9]+');
