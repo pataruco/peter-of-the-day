@@ -36,3 +36,13 @@ Route::get('/days/create', 'DayController@create')
 // Show
 Route::post('/days', 'DayController@store')
     ->name('days.store');
+
+// Edit
+Route::get('/days/{id}/edit', 'DayController@edit')
+    ->name('days.edit')
+    ->where('id', '[0-9]+');
+
+// Update
+Route::put('/days/{id}', 'DayController@update')
+    ->name('days.update')
+    ->where('id', '[0-9]+');

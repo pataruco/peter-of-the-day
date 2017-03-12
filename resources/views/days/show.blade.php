@@ -1,5 +1,7 @@
 <time>{{ $day->date }}</time>
 
+<a href="{{ route('days.edit', [ 'id' => $day->id ] ) }}">Edit</a>
+
 <h2>Video</h2>
     @if ( isset( $videos) )
     <ul>
