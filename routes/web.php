@@ -46,3 +46,8 @@ Route::get('/days/{id}/edit', 'DayController@edit')
 Route::put('/days/{id}', 'DayController@update')
     ->name('days.update')
     ->where('id', '[0-9]+');
+
+// destroy
+Route::delete('/days/{id}', 'DayController@destroy')
+    ->name('days.destroy')
+    ->where('id', '[0-9]+');
