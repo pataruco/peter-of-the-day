@@ -1,13 +1,13 @@
 <time>{{ $day->date }}</time>
 
 <a href="{{ route('days.edit', [ 'id' => $day->id ] ) }}">Edit</a>
-{!!  Form::model($day, ['route' => ['days.destroy', $day->id], 'method' => 'delete'] ) !!}
+{!!  Form::open(['route' => ['days.destroy', $day->id], 'method' => 'delete'] ) !!}
         {{ Form::submit('Delete Day') }}
 {{ Form::close() }}
 
 
 
-@if ( isset( $images ) )
+@if ( !empty( $images ) )
     <h2>Images</h2>
     <ul>
         @foreach ($images as $image)
@@ -18,7 +18,7 @@
     </ul>
 @endif
 
-@if ( isset( $videos) )
+@if ( !empty( $videos) )
     <h2>Video</h2>
     <ul>
         @foreach ($videos as $video)
