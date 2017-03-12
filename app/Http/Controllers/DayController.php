@@ -82,10 +82,8 @@ class DayController extends Controller
      * @param  \App\Day  $day
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Day $day)
     public function update(Request $request, $id)
     {
-        //
         $this->validate($request, $this->rules() );
         $day = Day::findOrFail( $id );
         $day->update( $request->all() );
@@ -102,10 +100,8 @@ class DayController extends Controller
      * @param  \App\Day  $day
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Day $day)
     public function destroy( $id )
     {
-        //
         $day = Day::findOrFail( $id );
         $files = $day->files;
         foreach ($files as $file ) {
