@@ -36,6 +36,7 @@ class DayController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, $this->rules() );
         $day = Day::create( $request->all() );
         if ( $request->hasfile('files') ) {
             $day->saveFiles( $request->allFiles() );
@@ -54,7 +55,10 @@ class DayController extends Controller
     {
         $day = Day::findOrFail( $id );
         $files = $day->files;
-        return view('days.show', compact('day', 'files') );
+        $images = $day->images();
+        $videos = $day->videos();
+
+        return view('days.show', compact('day', 'files', 'images', 'videos') );
     }
 
     /**
@@ -89,5 +93,14 @@ class DayController extends Controller
     public function destroy(Day $day)
     {
         //
+    }
+
+    private function rules()
+    {
+        $rules = [
+            'date' => 'required',
+            'files.*' => 'mimetypes:video/avi,video/mpeg,video/quicktime,image/jpeg,image/png,image/gif,image/svg+xml,image/bmp|max:20000|'
+        ];
+        return $rules;
     }
 }
