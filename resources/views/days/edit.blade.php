@@ -1,4 +1,4 @@
-{!!  Form::open($day, ['route' => ['days.update', $day->id], 'method' => 'put', 'files' => true] ) !!}
+{!!  Form::open(['route' => ['days.update', $day->id], 'method' => 'put', 'files' => true] ) !!}
     @include('days.form')
 
     {{ Form::submit('Update Day') }}
