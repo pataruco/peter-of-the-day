@@ -55,7 +55,10 @@ class DayController extends Controller
     {
         $day = Day::findOrFail( $id );
         $files = $day->files;
-        return view('days.show', compact('day', 'files') );
+        $images = $day->images();
+        $videos = $day->videos();
+
+        return view('days.show', compact('day', 'files', 'images', 'videos') );
     }
 
     /**

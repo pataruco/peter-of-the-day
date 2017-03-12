@@ -24,7 +24,6 @@ class File extends Model
         }
         Storage::disk('s3')
                 ->put( $this->setPath(), file_get_contents( $uploadedFile->getRealPath() ), 'public' );
-
     }
 
     public function setPath()
