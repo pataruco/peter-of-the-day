@@ -57,7 +57,6 @@ class DayController extends Controller
         $files = $day->files;
         $images = $day->images();
         $videos = $day->videos();
-
         return view('days.show', compact('day', 'files', 'images', 'videos') );
     }
 
@@ -67,9 +66,13 @@ class DayController extends Controller
      * @param  \App\Day  $day
      * @return \Illuminate\Http\Response
      */
-    public function edit(Day $day)
+    public function edit( $id )
     {
-        //
+        $day = Day::with('files')->findOrFail($id);
+        $files = $day->files;
+        $images = $day->images();
+        $videos = $day->videos();
+        return view('days.edit', compact('day', 'files', 'images', 'videos') );
     }
 
     /**
