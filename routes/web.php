@@ -27,30 +27,36 @@ Route::get('/home', 'HomeController@index');
 Route::get('/days', 'DayController@index')
     ->name('days.index');
 // Show
+
 Route::get('/days/{id}', 'DayController@show')
     ->name('days.show')
     ->where('id', '[0-9]+');
 // Create
 Route::get('/days/create', 'DayController@create')
-    ->name('days.create');
+    ->name('days.create')
+    ->middleware('auth');
 // Show
 Route::post('/days', 'DayController@store')
-    ->name('days.store');
+    ->name('days.store')
+    ->middleware('auth');
 
 // Edit
 Route::get('/days/{id}/edit', 'DayController@edit')
     ->name('days.edit')
-    ->where('id', '[0-9]+');
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
 
 // Update
 Route::put('/days/{id}', 'DayController@update')
     ->name('days.update')
-    ->where('id', '[0-9]+');
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
 
 // destroy
 Route::delete('/days/{id}', 'DayController@destroy')
     ->name('days.destroy')
-    ->where('id', '[0-9]+');
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
 
 /*
 |--------------------------------------------------------------------------
@@ -60,8 +66,5 @@ Route::delete('/days/{id}', 'DayController@destroy')
 
 Route::delete('/files/{id}', 'FileController@destroy')
     ->name('files.destroy')
-    ->where('id', '[0-9]+');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
