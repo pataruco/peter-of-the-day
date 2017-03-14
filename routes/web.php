@@ -61,3 +61,7 @@ Route::delete('/days/{id}', 'DayController@destroy')
 Route::delete('/files/{id}', 'FileController@destroy')
     ->name('files.destroy')
     ->where('id', '[0-9]+');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
