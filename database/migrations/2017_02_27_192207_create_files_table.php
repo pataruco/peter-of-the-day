@@ -21,11 +21,7 @@ class CreateFilesTable extends Migration
             $table->string('name')->nullable();
             $table->string('filename')->nullable();
             $table->enum('media_type', ['image', 'video'] );
-            $table->integer('day_id')->unsigned();
-        });
-
-        Schema::table('files', function (Blueprint $table) {
-            $table->foreign('day_id')->references('id')->on('days');
+            $table->integer('day_id');
         });
     }
     /**
@@ -35,9 +31,6 @@ class CreateFilesTable extends Migration
      */
     public function down()
     {
-        Schema::table('files', function (Blueprint $table) {
-            $table->dropForeign(['day_id']);
-        });
         Schema::dropIfExists('files');
     }
 }
