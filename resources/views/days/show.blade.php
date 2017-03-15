@@ -1,9 +1,14 @@
 <time>{{ $day->date }}</time>
 
-<a href="{{ route('days.edit', [ 'id' => $day->id ] ) }}">Edit</a>
-{!!  Form::open(['route' => ['days.destroy', $day->id], 'method' => 'delete'] ) !!}
+@can('update', $day )
+    <a href="{{ route('days.edit', [ 'id' => $day->id ] ) }}">Edit</a>
+@endcan
+{{--  --}}
+@can('delete', $day)
+    {!!  Form::open(['route' => ['days.destroy', $day->id], 'method' => 'delete'] ) !!}
         {{ Form::submit('Delete Day') }}
-{{ Form::close() }}
+    {{ Form::close() }}
+@endcan
 
 
 
