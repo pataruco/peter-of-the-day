@@ -1,4 +1,6 @@
-<a href="{{ route('days.create') }}">Add a new day</a>
+@can('create', App\Day::class)
+    <a href="{{ route('days.create') }}">Add a new day</a>
+@endcan
 
 <ul>
     @foreach ($days as $day  )
