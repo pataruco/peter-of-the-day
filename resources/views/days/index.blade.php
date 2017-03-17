@@ -19,3 +19,7 @@
         </li>
     @endforeach
 </ul>
+
+<section id="js-calendar-container">
+
+</section>
