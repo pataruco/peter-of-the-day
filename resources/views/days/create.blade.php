@@ -1,9 +1,15 @@
-{{ Form::open( [ 'route' => 'days.store', 'files' => true ] ) }}
+@extends('layouts.app')
 
-    @include('days.form')
+@section('content')
 
-    {{ Form::submit('Add Days') }}
+    {{ Form::open( [ 'route' => 'days.store', 'files' => true ] ) }}
 
-{{ Form::close() }}
+        @include('days.form')
 
-@include('errors.error-bag')
+        {{ Form::submit('Add Days') }}
+
+    {{ Form::close() }}
+
+    @include('errors.error-bag')
+
+@endsection
