@@ -58,6 +58,9 @@ Route::delete('/days/{id}', 'DayController@destroy')
     ->where('id', '[0-9]+')
     ->middleware('admin');
 
+// index JSON
+Route::get('/json/days', 'DayController@indexJson')
+        ->name('days.indexJson');
 /*
 |--------------------------------------------------------------------------
 | Files

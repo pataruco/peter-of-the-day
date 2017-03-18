@@ -122,4 +122,10 @@ class DayController extends Controller
         ];
         return $rules;
     }
+
+    public function indexJson()
+    {
+        $days = Day::all();
+        return response()->json( $days );
+    }
 }
