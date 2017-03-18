@@ -17,7 +17,15 @@
 
     @if ( !empty( $images ) )
         <h2>Images</h2>
-        <ul>
+        <ul class="js-slick-slider-main">
+            @foreach ($images as $image)
+                <li>
+                    <img src="{{ $image->url }}" alt="">
+                </li>
+            @endforeach
+        </ul>
+
+        <ul class="js-slick-slider-nav">
             @foreach ($images as $image)
                 <li>
                     <img src="{{ $image->url }}" alt="">
