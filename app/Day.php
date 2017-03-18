@@ -53,4 +53,8 @@ class Day extends Model
 
     protected $fillable = ['date'];
 
+    protected $guarded = ['created_at', 'updated_at'];
+
+    protected $visible = ['id', 'date'];
+
 }
