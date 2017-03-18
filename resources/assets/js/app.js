@@ -6,8 +6,18 @@
  */
 
 require('./bootstrap');
+// ********************************
+// Dependecies
+// ********************************
 require('moment');
+// ********************************
+// Vendor
+// ********************************
 require('./vendor/clndr.js');
+// ********************************
+// Partials
+// ********************************
+require('./partials/calendar.js');
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
