@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+:root, html, body {
+    font-family: $font-family-sans-serif;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $c-black;
+    transition: ease 1s all;
+}
+
+a {
+    color: $c-grey;
+    &:hover, &:focus {
+        color: $c-black;
+    }
+}
