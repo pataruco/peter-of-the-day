@@ -17,7 +17,15 @@
 
     @if ( !empty( $images ) )
         <h2>Images</h2>
-        <ul>
+        <ul class="js-slick-slider-main">
+            @foreach ($images as $image)
+                <li>
+                    <img src="{{ $image->url }}" alt="">
+                </li>
+            @endforeach
+        </ul>
+
+        <ul class="js-slick-slider-nav">
             @foreach ($images as $image)
                 <li>
                     <img src="{{ $image->url }}" alt="">
@@ -30,9 +38,12 @@
         <h2>Video</h2>
         <ul>
             @foreach ($videos as $video)
-                <video src="{{ $video->url }}" controls>
+                <a href="#{{ $video->id }}" class="js-modaal">Show</a>
+                <div id="{{ $video->id }}" style="display:none;">
+                    <video src="{{ $video->url }}" controls>
 
-                </video>
+                    </video>
+                </div>
             @endforeach
         </ul>
     @endif
