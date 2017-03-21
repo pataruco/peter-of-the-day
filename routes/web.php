@@ -25,12 +25,14 @@ Route::get('/home', 'HomeController@index');
 */
 // Index
 Route::get('/days', 'DayController@index')
-    ->name('days.index');
+    ->name('days.index')
+    ->middleware('auth');
 // Show
 
 Route::get('/days/{id}', 'DayController@show')
     ->name('days.show')
-    ->where('id', '[0-9]+');
+    ->where('id', '[0-9]+')
+    ->middleware('auth');
 // Create
 Route::get('/days/create', 'DayController@create')
     ->name('days.create')
