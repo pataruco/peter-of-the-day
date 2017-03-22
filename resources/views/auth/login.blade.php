@@ -35,18 +35,17 @@
                 </div>
 
                 <div class="form__group">
-                    <div class="">
-                        <div class="form__input">
-                            <label>
-                                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} class="form__checkbox"> Remember Me
-                            </label>
-                        </div>
+                    <div class="form__input">
+                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} class="form__checkbox">
+                        <label>
+                            Remember Me
+                        </label>
                     </div>
                 </div>
 
                 <div class="form__group">
                     <div class="form__input">
-                        <button type="submit" class="">
+                        <button type="submit" class="btn btn--primary">
                             Login
                         </button>
 
