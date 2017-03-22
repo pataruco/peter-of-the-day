@@ -36,33 +36,25 @@
                         <li class="column column--half"><a href="{{ route('login') }}">Login</a></li>
                         <li class="column column--half"><a href="{{ route('register') }}">Register</a></li>
                     @else
-                        <li class="">
-                            <a href="#" class="" role="button" aria-expanded="false">
+                        <li class="" id="js-toggle-slide-button">
+                            <a href="#" class="navigation__username" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
-                            <ul class="" role="">
+                            <ul class="navigation__logged" role="" id="js-toggle-slide-container">
                                 <li>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     Logout
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                @endif
-            </ul>
-        </div>
-            {{-- <div class="column column--one-quarter">
-                <button type="button" class="" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div> --}}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
+                </ul>
+            </div>
         </nav>
     </header>
 

@@ -11,9 +11,9 @@
 }
 
 a {
-    color: $c-grey;
+    color: $c-black;
     text-decoration: none;
     &:hover, &:focus {
-        color: $c-black;
+        color: $c-grey;
     }
 }
