@@ -40,3 +40,9 @@
 .float-right {
     float:right;
 }
+
+.constrain {
+    padding: 0 $base;
+    max-width: 780px;
+    margin: 0 auto;
+}

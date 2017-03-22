@@ -1,8 +1,10 @@
 .navigation {
     border-bottom: 2px solid $c-black;
+    padding: 0 $base;
     &__brand {
         margin-top: $base / 2;
         letter-spacing: .1em;
+        font-size: 1.8rem;
     }
 
     &__login {
