@@ -1,9 +1,13 @@
+// vendor
+@import "vendor/normalize";
+@import "vendor/slick";
+@import "vendor/modaal";
 
 // Variables
 @import "variables";
+//global
 @import "global";
-
-// vendor
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "vendor/slick";
-@import "vendor/modaal";
+//layout
+@import "layout";
+// modules
+@import "navigation"

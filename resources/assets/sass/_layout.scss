@@ -1,0 +1,42 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    &--align-right {
+        justify-content: flex-end;
+    }
+}
+
+.column {
+    width: 100%;
+    &--three-quarter {
+        width: 75%;
+    }
+    &--two-thirds {
+        width: 66%;
+    }
+    &--half {
+        width: 50%;
+    }
+    &--one-third{
+        width: 33%;
+    }
+    &--one-quarter {
+        width: 25%;
+    }
+}
+
+.clearfix {
+    &:after {
+        clear: both;
+    }
+    &:before, &:after {
+        content: '';
+        display: table;
+    }
+}
+
+.float-right {
+    float:right;
+}

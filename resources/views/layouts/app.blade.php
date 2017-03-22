@@ -21,68 +21,53 @@
     </script>
 </head>
 <body>
-    <div id="app">
-        <header>
-            <nav class="">
-                <div class="">
-                    <div class="">
-
-                        <!-- Collapsed Hamburger -->
-                        <button type="button" class="" data-toggle="collapse" data-target="#app-navbar-collapse">
-                            <span class="sr-only">Toggle Navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-
-                        <!-- Branding Image -->
-                        <a class="" href="{{ url('/') }}">
-                            {{ config('app.name', 'Laravel') }}
-                        </a>
-                    </div>
-
-                    <div class="" id="app-navbar-collapse">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="v">
-                            &nbsp;
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="">
-                            <!-- Authentication Links -->
-                            @if (Auth::guest())
-                                <li><a href="{{ route('login') }}">Login</a></li>
-                                <li><a href="{{ route('register') }}">Register</a></li>
-                            @else
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                        {{ Auth::user()->name }}
-                                    </a>
-
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>
-                                            <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
+    <header class="navigation__header">
+        <nav class="navigation navigation--align-right row">
+            <div class="column column--two-thirds">
+                <h1 class="navigation__brand">
+                    <a class="" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
+                </h1>
             </div>
-        </nav>
+            <div class="column column--one-third">
+                <ul class="navigation__login row">
+                    @if (Auth::guest())
+                        <li class="column column--half"><a href="{{ route('login') }}">Login</a></li>
+                        <li class="column column--half"><a href="{{ route('register') }}">Register</a></li>
+                    @else
+                        <li class="">
+                            <a href="#" class="" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </a>
+                            <ul class="" role="">
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
 
-        </header>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+            </ul>
+        </div>
+            {{-- <div class="column column--one-quarter">
+                <button type="button" class="" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div> --}}
+        </nav>
+    </header>
 
         @yield('content')
-    </div>
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
