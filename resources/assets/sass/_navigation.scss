@@ -1,16 +1,29 @@
 .navigation {
-    &__header{
-    }
-    border-bottom: 2px solid $c-grey;
-
+    border-bottom: 2px solid $c-black;
     &__brand {
-        margin: $base/2  $base;
+        margin-top: $base / 2;
+        letter-spacing: .1em;
     }
 
     &__login {
         padding: 0;
-        margin: 0;
+        margin-top: 1.8em;
         list-style: none;
-        margin: $base/2  $base;
+    }
+    &__logged {
+        list-style: none;
+        padding: 0;
+        display: none;
+        position: absolute;
+        li {
+            &:last-of-type {
+                a {
+                    text-align: right;
+                }
+            }
+        }
+    }
+    &__username {
+        text-decoration: underline;
     }
 }
