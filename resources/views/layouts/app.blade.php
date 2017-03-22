@@ -23,14 +23,14 @@
 <body>
     <header class="navigation__header">
         <nav class="navigation navigation--align-right row">
-            <div class="column column--two-thirds">
+            <div class="column column--half">
                 <h1 class="navigation__brand">
                     <a class="" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </h1>
             </div>
-            <div class="column column--one-third">
+            <div class="column column--half">
                 <ul class="navigation__login row">
                     @if (Auth::guest())
                         <li class="column column--half"><a href="{{ route('login') }}">Login</a></li>
