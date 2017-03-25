@@ -37,12 +37,12 @@
                         <li class="column column--half"><a href="{{ route('register') }}">Register</a></li>
                     @else
                         <li class="" id="js-toggle-slide-button">
-                            <a href="#" class="navigation__username" role="button" aria-expanded="false">
+                            <a href="#" class="navigation__username btn btn--no-border" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
                             <ul class="navigation__logged" role="" id="js-toggle-slide-container">
                                 <li>
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    <a href="{{ route('logout') }}" class="btn btn--no-border" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     Logout
                                     </a>

@@ -8,4 +8,11 @@
         background-color: $c-black;
         color: $c-white;
     }
+
+    &--no-border {
+        border: none;
+        &:hover, &:focus {
+            border: none;
+        }
+    }
 }
