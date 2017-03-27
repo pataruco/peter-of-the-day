@@ -9,7 +9,6 @@ require('./bootstrap');
 // ********************************
 // Dependecies
 // ********************************
-require('moment');
 // ********************************
 // Vendor
 // ********************************
@@ -22,6 +21,7 @@ require('./vendor/modaal.js');
 require('./partials/calendar.js');
 require('./partials/slider.js');
 require('./partials/modal.js');
+require('./partials/navigation.js');
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
