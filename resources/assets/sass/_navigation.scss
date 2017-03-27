@@ -1,18 +1,37 @@
 .navigation {
-    border-bottom: 2px solid $c-black;
+    background-color: $c-black;
+    color: $c-white;
     padding: 0 $base;
+
+    a {
+        color: $c-white;
+        &:hover {
+            color: $c-grey;
+        }
+    }
+
     &__brand {
         margin-top: $base / 2;
         letter-spacing: .1em;
         font-size: 1.8rem;
+        a {
+            color: $c-grey;
+            text-shadow: .05em .05em 0px $c-white;
+            &:hover, &:focus {
+                color: $c-white;
+                text-shadow: .05em .05em 0px $c-grey;
+
+            }
+        }
     }
 
     &__login {
         padding: 0;
         margin-top: 1.8em;
         list-style: none;
-        li {
+        li a {
             text-align: right;
+            text-decoration: none;
         }
     }
     &__logged {
