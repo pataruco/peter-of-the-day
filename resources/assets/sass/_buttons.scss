@@ -15,4 +15,12 @@
             border: none;
         }
     }
+    &--black {
+        background-color: $c-black;
+        color: $c-white;
+        &:hover, &:focus {
+            background-color: $c-black;
+            color: $c-white;    
+        }
+    }
 }
