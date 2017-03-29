@@ -1,0 +1,40 @@
+.slick-arrow {
+    @extend .btn;
+}
+
+.slick-slide {
+    img {
+        display: block;
+        height: auto;
+        width: 100%;
+    }
+}
+
+.js-slick-slider-nav {
+    position: relative;
+    .slick-arrow {
+        position: absolute;
+        top: 50%;
+    }
+    .slick-prev {
+        left: 0;
+        right: auto;
+    }
+    .slick-next {
+        left: auto;
+        right: 0;
+    }
+}
+
+.slick-dots {
+    padding: 0;
+    list-style: none;
+    li {
+        display: inline-block;
+        button {
+            border-radius: 50%;
+            border: none;
+            background-color: white;
+        }
+    }
+}
