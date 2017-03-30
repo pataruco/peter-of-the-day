@@ -24,7 +24,7 @@
                     <ul class="js-slick-slider-main">
                         @foreach ($images as $image)
                             <li>
-                                <img class="img-responsive" src="{{ $image->url }}" alt="">
+                                <img class="" src="{{ $image->url }}" alt="">
                             </li>
                         @endforeach
                     </ul>
@@ -43,7 +43,7 @@
         <section class="row">
             <div class="col-md-12">
                 @if ( !empty( $videos) )
-                    <h2>Video</h2>
+                    <h2>Videos</h2>
                     <ul>
                         @foreach ($videos as $video)
                             <a href="#{{ $video->id }}" class="js-modaal">Show</a>
