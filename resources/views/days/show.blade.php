@@ -4,7 +4,11 @@
     <main class="container">
         <section class="row">
             <div class="col-md-12">
-                <time>{{ $day->date }}</time>
+                @php
+                    \Carbon\Carbon::setLocale('es');
+                @endphp
+                <time>{{ \Carbon\Carbon::parse( $day->date )->toFormattedDateString() }}</time>
+
                 @can('update', $day )
                     <a class="btn btn-default" href="{{ route('days.edit', [ 'id' => $day->id ] ) }}">Edit</a>
                 @endcan
