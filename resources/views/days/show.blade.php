@@ -4,7 +4,11 @@
     <main class="container">
         <section class="row">
             <div class="col-md-12">
-                <time>{{ $day->date }}</time>
+                @php
+                    \Carbon\Carbon::setLocale('es');
+                @endphp
+                <time>{{ \Carbon\Carbon::parse( $day->date )->toFormattedDateString() }}</time>
+
                 @can('update', $day )
                     <a class="btn btn-default" href="{{ route('days.edit', [ 'id' => $day->id ] ) }}">Edit</a>
                 @endcan
@@ -24,7 +28,7 @@
                     <ul class="js-slick-slider-main">
                         @foreach ($images as $image)
                             <li>
-                                <img class="img-responsive" src="{{ $image->url }}" alt="">
+                                <img class="" src="{{ $image->url }}" alt="">
                             </li>
                         @endforeach
                     </ul>
@@ -43,7 +47,7 @@
         <section class="row">
             <div class="col-md-12">
                 @if ( !empty( $videos) )
-                    <h2>Video</h2>
+                    <h2>Videos</h2>
                     <ul>
                         @foreach ($videos as $video)
                             <a href="#{{ $video->id }}" class="js-modaal">Show</a>

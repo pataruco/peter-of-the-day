@@ -1,5 +1,6 @@
 const calendar = new Object();
 
+moment.locale('es');
 calendar.$container = $('#js-calendar-container');
 
 calendar.peterBday = moment("26-01-2017", "DD-MM-YYYY");
@@ -15,6 +16,7 @@ calendar.datesSelect = function (target) {
 
 calendar.settings = {
     startWithMonth: calendar.today,
+    moment: moment,
     trackSelectedDate: true,
     constraints: {
         startDate: calendar.peterBday,
@@ -35,7 +37,7 @@ calendar.settings = {
         nextMonth: "next-month",
         adjacentMonth: "adjacent-month",
     },
-    weekOffset: 1
+    weekOffset: 0
 }
 
 calendar.render = function ( dates ) {

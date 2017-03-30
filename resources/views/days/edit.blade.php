@@ -24,7 +24,7 @@
                             <li>
                                 <img src="{{ $image->url }}" alt="">
                                 {!!  Form::open(['route' => ['files.destroy', $image->id], 'method' => 'delete'] ) !!}
-                                        {{ Form::submit('Delete Image') }}
+                                        {{ Form::submit('Delete Image', ['class' => 'btn btn-danger']) }}
                                 {{ Form::close() }}
                             </li>
                         @endforeach
@@ -42,7 +42,7 @@
 
                             </video>
                             {!!  Form::open(['route' => ['files.destroy', $video->id], 'method' => 'delete'] ) !!}
-                                    {{ Form::submit('Delete video') }}
+                                    {{ Form::submit('Delete video', ['class' => 'btn btn-danger'] ) }}
                             {{ Form::close() }}
                         @endforeach
                     </ul>

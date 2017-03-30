@@ -1,0 +1,33 @@
+.clndr-table {
+    @extend .table;
+    @extend .table-hover;
+    @extend .table-bordered;
+    @extend .table-responsive;
+    background-color: $c-white;
+
+    .event {
+        @extend .warning;
+        cursor: pointer;
+    }
+
+    td {
+        text-align: center;
+    }
+}
+
+.clndr-control-button {
+    span {
+        @extend .btn;
+        @extend .btn-default;
+    }
+}
+
+.clndr-controls {
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-end;
+}
+
+.month {
+    @extend .h3;
+}
