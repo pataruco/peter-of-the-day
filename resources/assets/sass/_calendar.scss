@@ -3,6 +3,7 @@
     @extend .table-hover;
     @extend .table-bordered;
     @extend .table-responsive;
+    background-color: $c-white;
 
     .event {
         @extend .warning;
