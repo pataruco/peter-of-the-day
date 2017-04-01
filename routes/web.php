@@ -14,8 +14,8 @@ Route::get('/', function () {
     return redirect('days');
 });
 
-Route::get('/.well-known/acme-challenge/-tjASOw03ZiNz96Ws18rw04rXpaDWtofhyKNoFCWtBo', function () {
-    return '-tjASOw03ZiNz96Ws18rw04rXpaDWtofhyKNoFCWtBo.-_o3vlOqx_GCcuYToPwFwVvFEcy9G02IiqD0zgIl-Uo';
+Route::get('/.well-known/acme-challenge/{id}', function () {
+    return 'XjJTNDhcuyO9gbYFO16eyJsH_wZkm6O9g3d5P55bFHA.-_o3vlOqx_GCcuYToPwFwVvFEcy9G02IiqD0zgIl-Uo';
 });
 
 
