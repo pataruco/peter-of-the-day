@@ -18,6 +18,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::any('/register','HomeController@index'); // Disable register
+
 /*
 |--------------------------------------------------------------------------
 | Days
