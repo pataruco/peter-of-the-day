@@ -14,6 +14,12 @@ Route::get('/', function () {
     return redirect('days');
 });
 
+Route::get('/.well-known/acme-challenge/-tjASOw03ZiNz96Ws18rw04rXpaDWtofhyKNoFCWtBo', function () {
+    return '-tjASOw03ZiNz96Ws18rw04rXpaDWtofhyKNoFCWtBo.-_o3vlOqx_GCcuYToPwFwVvFEcy9G02IiqD0zgIl-Uo';
+});
+
+
+
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index');
