@@ -11,11 +11,12 @@
 |
 */
 Route::get('/', function () {
-    return redirect('days');
+    // return redirect('days');
+    return 'hello';
 });
 
 Route::get('/.well-known/acme-challenge/{id}', function () {
-    return 'XjJTNDhcuyO9gbYFO16eyJsH_wZkm6O9g3d5P55bFHA.-_o3vlOqx_GCcuYToPwFwVvFEcy9G02IiqD0zgIl-Uo';
+    return 'IrEhFxvlFr0wSTPZY1JU2tycAV57xQf1LGCdVU4YKE8.-_o3vlOqx_GCcuYToPwFwVvFEcy9G02IiqD0zgIl-Uo';
 });
 
 
