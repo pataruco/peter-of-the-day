@@ -22,6 +22,8 @@ class DayApiController extends Controller
                  'filename'=>$image->filename
              ];
             return response()->file($file, $image->filename, $headers );
+            // return response()->file($file, $image->filename, $headers );
+            return view('api.show', $image);
         } else {
             dump('no day');
         }
