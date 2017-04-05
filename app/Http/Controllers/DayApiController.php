@@ -54,7 +54,7 @@ class DayApiController extends Controller
         $day = Day::where('date', $date)->get()->first();
         if ( $day ) {
             $max =  count( $day->images() );
-            $image = $day->images()[ $number + 1 ];
+            $image = $day->images()[$number];
             $file = Storage::disk('s3')->get( $image->setPath() );
             return Image::make( $file  )->response();
         } else {
@@ -85,7 +85,7 @@ class DayApiController extends Controller
         $day = Day::where('date', $date)->get()->first();
         if ( $day ) {
             $max =  count( $day->images() );
-            $image = $day->images()[$number + 1 ];
+            $image = $day->images()[$number];
             $file = Storage::disk('s3')->get( $image->setPath() );
             $headers = [
                 'Content-Type' => 'image/png',
