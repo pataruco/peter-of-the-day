@@ -6,6 +6,7 @@ use App\Day;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Storage;
+use Image;
 
 class DayApiController extends Controller
 {
@@ -16,27 +17,9 @@ class DayApiController extends Controller
         if ( $day ) {
             $image = $day->images()[0];
             $file = Storage::disk('s3')->get( $image->setPath() );
-            $headers = [
-                 'Content-Type' => 'image',
-                 'Content-Disposition' => 'attachment',
-                 'filename'=>$image->filename
-             ];
-            return response()->file($file, $image->filename, $headers );
-            // return response()->file($file, $image->filename, $headers );
-            return view('api.show', $image);
+            return Image::make( $file  )->response();
         } else {
             dump('no day');
         }
     }
 }
-
-
-// public function respondDownload($fileContent, $fileName, $mime)
-// {
-//     $headers = [
-//         'Content-Type' => $mime,
-//         'Content-Disposition' => 'attachment',
-//         'filename'=>$fileName
-//     ];
-//     return response()->download($fileContent, $fileName, $headers);
-// }
