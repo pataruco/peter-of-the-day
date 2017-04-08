@@ -30,4 +30,4 @@ Route::get('/day/{date}/{number}', 'DayApiController@dateNumber')->where('date',
 // /api/day/{date}/random/download -> picture download
 Route::get('/day/{date}/random/download', 'DayApiController@randomDownload')->where('date', '[A-Z]+|\d{4}(?:-\d{1,2}){2}');
 // /api/day/{date}/{number}/download ->picture
-Route::get('/day/{date}/{number}', 'DayApiController@dateNumberDownload')->where('date', '[A-Z]+|\d{4}(?:-\d{1,2}){2}');
+Route::get('/day/{date}/{number}/download', 'DayApiController@dateNumberDownload')->where('date', '[A-Z]+|\d{4}(?:-\d{1,2}){2}');
