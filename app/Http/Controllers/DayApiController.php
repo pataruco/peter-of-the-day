@@ -62,50 +62,24 @@ class DayApiController extends Controller
     }
 
     public function randomDownload( $date ) {
-        $day = Day::where('date', $date)->get()->first();
-        if ( $day ) {
-            $max =  count( $day->images() );
-            $random = random_int( 0 , $max - 1 );
-            $image = $day->images()[$random];
-            $file = Storage::disk('s3')->get( $image->setPath() );
-            $headers = [
-                'Content-Type' => 'image/png',
-                'Content-Description' => 'File Transfer',
-                'Content-Disposition' => "attachment; filename={$image->filename}",
-                'filename'=> $image->filename
-            ];
-            return response($file, 200, $headers);
+        $image = $this->getImage( $date, 0,  true, true );
+        if ( $image ) {
+            return response( $image['file'], $image['response'], $image['headers'] );
         } else {
             return response()->json([
-                'message' =>  'No image today',
-            ]);
+                  'message' =>  'No image today',
+              ]);
         }
     }
 
     public function dateNumberDownload( $date, $number ) {
-        $day = Day::where('date', $date)->get()->first();
-        if ( $day ) {
-            $max =  count( $day->images() );
-            $number = $number - 1;
-            if ( $number >= $max || $number <= -1 ) {
-                return response()->json([
-                    'message' =>  'Number of images is '.$max,
-                ]);
-            } else {
-                $image = $day->images()[$number];
-                $file = Storage::disk('s3')->get( $image->setPath() );
-                $headers = [
-                    'Content-Type' => 'image/png',
-                    'Content-Description' => 'File Transfer',
-                    'Content-Disposition' => "attachment; filename={$image->filename}",
-                    'filename'=> $image->filename
-                ];
-                return response($file, 200, $headers);
-            }
+        $image = $this->getImage( $date, $number,  false, true );
+        if ( $image ) {
+            return response( $image['file'], $image['response'], $image['headers'] );
         } else {
             return response()->json([
-                'message' =>  'No image today',
-            ]);
+                  'message' =>  'No image today',
+              ]);
         }
     }
 
@@ -119,7 +93,7 @@ class DayApiController extends Controller
     }
 
 
-    public function getImage( $date, $number = false, $random = false) {
+    public function getImage( $date, $number = false, $random = false, $download = false ) {
         $day = $this->getDay( $date );
         if ( $day ) {
             $max =  count( $day->images() );
@@ -135,6 +109,19 @@ class DayApiController extends Controller
             }
             $image = $day->images()[$number];
             $file = Storage::disk('s3')->get( $image->setPath() );
+            if ( $download ) {
+                $headers = [
+                    'Content-Type' => 'image/png',
+                    'Content-Description' => 'File Transfer',
+                    'Content-Disposition' => "attachment; filename={$image->filename}",
+                    'filename'=> $image->filename
+                ];
+                return array(
+                    'file' => $file,
+                    'response'=>200,
+                    'headers' => $headers
+                );
+            }
             return Image::make( $file );
         } else {
             return false;
