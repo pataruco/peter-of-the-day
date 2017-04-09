@@ -2,7 +2,6 @@ const calendar = new Object();
 
 moment.locale('es');
 calendar.$container = $('#js-calendar-container');
-
 calendar.peterBday = moment("26-01-2017", "DD-MM-YYYY");
 calendar.today = moment();
 
@@ -12,6 +11,11 @@ calendar.datesSelect = function (target) {
         let dateId = target.events[0].id
         window.location = `/days/${dateId}`;
     }
+}
+
+calendar.changeButtons = function ( e ) {
+    $('span.clndr-previous-button').html('&lt;');
+    $('span.clndr-next-button').html('&gt;');
 }
 
 calendar.settings = {
@@ -37,7 +41,12 @@ calendar.settings = {
         nextMonth: "next-month",
         adjacentMonth: "adjacent-month",
     },
-    weekOffset: 0
+    weekOffset: 0,
+    forceSixRows: true,
+    ignoreInactiveDaysInSelection: true,
+    ready: function () {
+        calendar.changeButtons();
+    }
 }
 
 calendar.render = function ( dates ) {
@@ -55,6 +64,8 @@ calendar.getDays = function () {
             console.error( error );
         });
 }
+
+
 
 if ( calendar.$container.length ) {
     $(window).on('load', calendar.getDays);
