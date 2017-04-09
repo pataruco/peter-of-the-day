@@ -3,13 +3,16 @@
 @section('content')
     <main class="container">
         <section class="row">
-            <div class="col-md-8 col-md-offset-4">
+            <div class="col-md-8">
 
-                {{ Form::open( [ 'route' => 'days.store', 'files' => true, 'class' => 'form' ] ) }}
+                {{ Form::open( [ 'route' => 'days.store', 'files' => true, 'class' => 'form-horizontal form-custom' ] ) }}
 
                     @include('days.form')
-
-                    {{ Form::submit('Add Days', [ 'class' => 'btn btn-default']) }}
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-5">
+                            {{ Form::submit('Add Day', [ 'class' => 'btn btn-primary']) }}
+                        </div>
+                    </div>
 
                 {{ Form::close() }}
 

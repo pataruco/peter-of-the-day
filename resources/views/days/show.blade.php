@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    @include('days.partials.add')
     <main class="container">
         <section class="row">
             <div class="col-md-12">
