@@ -40,7 +40,7 @@ class DayApiController extends Controller
     }
 
     public function random( $date ) {
-        $image = Day::getImage( $date, 0,  true);
+        $image = Day::getImage( $date, $number = 0,  $random = true);
         if ( $image ) {
             return $image->response();
         } else {
@@ -51,7 +51,7 @@ class DayApiController extends Controller
     }
 
     public function dateNumber( $date, $number ){
-        $image = Day::getImage( $date, $number,  false );
+        $image = Day::getImage( $date, $number );
         if ( $image ) {
             return $image->response();
         } else {
@@ -62,7 +62,7 @@ class DayApiController extends Controller
     }
 
     public function randomDownload( $date ) {
-        $image = Day::getImage( $date, 0,  true, true );
+        $image = Day::getImage( $date, $number = 0,  $random = true, $download = true );
         if ( $image ) {
             return response( $image['file'], $image['response'], $image['headers'] );
         } else {
@@ -73,7 +73,7 @@ class DayApiController extends Controller
     }
 
     public function dateNumberDownload( $date, $number ) {
-        $image = Day::getImage( $date, $number,  false, true );
+        $image = Day::getImage( $date, $number, $random = false, $download = true );
         if ( $image ) {
             return response( $image['file'], $image['response'], $image['headers'] );
         } else {
