@@ -1,4 +1,4 @@
-$body-bg: #ccc;
+$body-bg: rgba(247, 247, 247, 1.0);
 
  // Borders
  $laravel-border-color: darken($body-bg, 10%);
@@ -49,3 +49,11 @@ $text-color: $c-black;
 // Base units
 
 $base: 20px;
+
+// Flag colours
+
+$c-vzla-red: rgba(207, 20, 43, 1.0);
+$c-vzla-blue: rgba(0, 36, 125, 1.0);
+$c-vzla-yellow: rgba(255, 204, 0, 1.0);
+
+$c-ee-blue: rgba(0, 114, 206, 1.0);

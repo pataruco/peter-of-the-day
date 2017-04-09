@@ -1,24 +1,29 @@
 .clndr-table {
     @extend .table;
-    @extend .table-hover;
-    @extend .table-bordered;
     @extend .table-responsive;
     background-color: $c-white;
 
     .event {
-        @extend .warning;
+        color:$c-vzla-red;
+        text-decoration: underline;
         cursor: pointer;
+        font-weight: bold;
+        transition: 1s ease all;
+        &:hover {
+            color: white;
+            background-color: $c-vzla-blue;
+            text-decoration: none;
+        }
     }
 
-    td {
+    tbody tr td {
+        padding: 0;
+        vertical-align: middle;
         text-align: center;
-    }
-}
-
-.clndr-control-button {
-    span {
-        @extend .btn;
-        @extend .btn-default;
+        height: 0;
+        padding: 2em 0;
+        border:none;
+        color: darken($body-bg, 10%);
     }
 }
 
@@ -29,5 +34,36 @@
 }
 
 .month {
-    @extend .h3;
+    margin-top: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    color:$c-vzla-red;
+}
+
+.clndr-previous-button {
+    @extend .glyphicon;
+    @extend .glyphicon-chevron-left;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease all;
+    &:hover {
+        color: $c-vzla-red;
+    }
+}
+
+.clndr-next-button {
+    @extend .glyphicon;
+    @extend .glyphicon-chevron-right;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease all;
+    &:hover {
+        color: $c-vzla-red;
+    }
+}
+.header-day {
+    text-align: center;
 }

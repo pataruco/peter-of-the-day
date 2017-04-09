@@ -2,16 +2,10 @@
 
 @section('content')
     <main class="container">
-        <section class="row">
-            <div class="col-md-12 text-right">
-                @can('create', App\Day::class)
-                    <a class="btn btn-default" href="{{ route('days.create') }}">Add a new day</a>
-                @endcan
-            </div>
-        </section>
+        <div class="row">
+            <section id="js-calendar-container" class="col-md-8 col-md-offset-2">
 
-        <section id="js-calendar-container">
-
-        </section>
+            </section>
+        </div>
     </main>
 @endsection
