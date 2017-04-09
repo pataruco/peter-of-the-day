@@ -6,7 +6,7 @@
 </div>
 
 <div class="form-group">
-    {{ Form::label('files[]', ( isset( $day ) ) ? 'Add more files' : 'Add files', [ 'class' => 'col-md-3 control-label'] )}}
+    {{ Form::label('files[]', ( isset( $day ) ) ? 'Add files' : 'Add files', [ 'class' => 'col-md-3 control-label'] )}}
     <div class="col-md-5">
         {{ Form::file('files[]',  [ 'multiple' => true ] ) }}
     </div>

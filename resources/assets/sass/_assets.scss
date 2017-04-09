@@ -1,6 +1,8 @@
 .assets {
     li {
         position:relative;
+        margin-bottom: $base * 2;
+        // height: 50%;
     }
     form {
         position: absolute;
@@ -19,5 +21,11 @@
         display: block;
         width: 1.5em;
         height: 1.5em;
+        @include default-transition;
+        &:hover, &:focus {
+            outline: none;
+            background-color: $c-black;
+            color: $c-white;
+        }
     }
 }
