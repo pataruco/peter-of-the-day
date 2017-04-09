@@ -14,8 +14,8 @@ calendar.datesSelect = function (target) {
 }
 
 calendar.changeButtons = function ( e ) {
-    $('span.clndr-previous-button').html('&lt;');
-    $('span.clndr-next-button').html('&gt;');
+    $('span.clndr-previous-button').html('');
+    $('span.clndr-next-button').html('');
 }
 
 calendar.settings = {
@@ -44,9 +44,11 @@ calendar.settings = {
     weekOffset: 0,
     forceSixRows: true,
     ignoreInactiveDaysInSelection: true,
-    ready: function () {
+    doneRendering: function () {
         calendar.changeButtons();
-    }
+    },
+    daysOfTheWeek: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+    showAdjacentMonths: false,
 }
 
 calendar.render = function ( dates ) {
