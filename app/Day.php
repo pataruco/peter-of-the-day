@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\File;
+use Storage;
+use Image;
 
 class Day extends Model
 {
@@ -49,6 +51,50 @@ class Day extends Model
     {
         $images = $this->getFilesByMedia('image');
         return $images;
+    }
+
+    public static function getDay( $date ) {
+        $day = Day::where('date', $date)->get()->first();
+        if ( $day ) {
+            return $day;
+        } else {
+            return false;
+        }
+    }
+
+    public static function getImage( $date, $number = false, $random = false, $download = false ) {
+        $day = Day::getDay( $date );
+        if ( $day ) {
+            $max =  count( $day->images() );
+            if ( $random ) {
+                $number = random_int( 0 , $max - 1 );
+            }
+            if ( $number ) {
+                if ( $number >= $max || $number <= -1 ) {
+                    return false;
+                } else {
+                    $number = $number -1;
+                }
+            }
+            $image = $day->images()[$number];
+            $file = Storage::disk('s3')->get( $image->setPath() );
+            if ( $download ) {
+                $headers = [
+                    'Content-Type' => 'image/png',
+                    'Content-Description' => 'File Transfer',
+                    'Content-Disposition' => "attachment; filename={$image->filename}",
+                    'filename'=> $image->filename
+                ];
+                return array(
+                    'file' => $file,
+                    'response'=>200,
+                    'headers' => $headers
+                );
+            }
+            return Image::make( $file );
+        } else {
+            return false;
+        }
     }
 
     protected $fillable = ['date'];
