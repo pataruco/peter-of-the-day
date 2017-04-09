@@ -1,0 +1,11 @@
+.form-custom {
+    label {
+        font-size: 2rem;
+        color: $c-vzla-red;
+        padding: 0 !important;
+    }
+    input {
+        line-height: 2rem;
+        font-size: 1.25rem;
+    }
+}
