@@ -3,13 +3,13 @@
 @section('content')
     <main class="container">
         <section class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 col-xs-12">
 
                 {!!  Form::open(['route' => ['days.update', $day->id], 'method' => 'put', 'files' => true, 'class' => 'form-horizontal form-custom'] ) !!}
                     @include('days.form')
 
                     <div class="form-group">
-                        <div class="col-md-offset-3 col-md-5">
+                        <div class="col-md-offset-3 col-md-5 col-xs-12">
                             {{ Form::submit('Update Day', ['class' => 'btn btn-primary']) }}
                         </div>
                     </div>
