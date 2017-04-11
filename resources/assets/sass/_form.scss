@@ -1,11 +1,8 @@
-.form-custom {
+.form-custom, .form-horizontal {
     label {
-        font-size: 2rem;
         color: $c-vzla-red;
-        padding-top: 0 !important;
     }
-    input {
-        line-height: 2rem;
-        font-size: 1.25rem;
+    input[type="file"] {
+        padding-top: 0.2em;
     }
 }
