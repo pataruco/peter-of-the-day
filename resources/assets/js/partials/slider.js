@@ -6,8 +6,7 @@ if ( slider.$container.length ) {
     slider.$container.slick({
         adaptiveHeight: true,
         dots: true,
-        fade: true,
-        lazyLoad: 'progressive'
+        fade: true
     });
 }
 

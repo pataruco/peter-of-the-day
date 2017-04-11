@@ -44,7 +44,7 @@
                             <ul id="js-slick-slider">
                                 @foreach ($images as $image)
                                     <li>
-                                        <img class="img-responsive img-rounded" data-lazy="{{ $image->url }}">
+                                        <img class="img-responsive img-rounded" src="{{ $image->url }}">
                                     </li>
                                 @endforeach
                             </ul>
