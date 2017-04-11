@@ -47,7 +47,7 @@ calendar.settings = {
     doneRendering: function () {
         calendar.changeButtons();
     },
-    daysOfTheWeek: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+    // daysOfTheWeek: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
     showAdjacentMonths: false,
 }
 

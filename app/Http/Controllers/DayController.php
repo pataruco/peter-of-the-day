@@ -118,7 +118,7 @@ class DayController extends Controller
     {
         $rules = [
             'date' => 'required',
-            'files.*' => 'mimetypes:video/avi,video/mpeg,video/quicktime,image/jpeg,image/png,image/gif,image/svg+xml,image/bmp|max:100000|'
+            'files.*' => 'mimetypes:video/avi,video/mpeg,video/quicktime,image/jpeg,image/png,image/gif,image/svg+xml,image/bmp|max:100000|required'
         ];
         return $rules;
     }

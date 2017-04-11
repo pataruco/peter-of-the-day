@@ -58,7 +58,7 @@ class File extends Model
 
     public function resizeImg( $uploadedFile )
     {
-        $img = Image::make( $uploadedFile );
+        $img = Image::make( $uploadedFile )->orientate();
         $width = $img->width();
         if ( $width > 1000 ) {
             $img->resize(1000, null, function ($constraint) {

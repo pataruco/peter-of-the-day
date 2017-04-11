@@ -1,0 +1,19 @@
+.no-margin {
+    margin: 0;
+}
+
+.text-align {
+    &--right {
+        text-align: right;
+    }
+}
+
+.display {
+    &--inline-block{
+        display: inline-block;
+    }
+}
+
+.line-height--1-5{
+    line-height: 1.5;
+}
