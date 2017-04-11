@@ -43,4 +43,11 @@ ul {
             border: 1px solid $c-vzla-blue;
         }
     }
+    &-link {
+        color: $c-vzla-red;
+        @include default-transition;
+        &:hover {
+            color: $c-vzla-blue;
+        }
+    }
 }
