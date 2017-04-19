@@ -1,11 +1,16 @@
 .btn {
     &-primary {
-        background-color: $c-vzla-red;
-        border: 1px solid $c-vzla-red;
+        background-color: $c-vzla-yellow;
+        border: 1px solid $c-vzla-yellow;
+        box-shadow: -4px 4px 0 0 $c-vzla-red;
+        color: $c-black;
         @include default-transition;
         &:hover {
-            background-color: $c-vzla-blue;
-            border: 1px solid $c-vzla-blue;
+            background-color: $c-vzla-yellow;
+            border: 1px solid $c-vzla-yellow;
+            box-shadow: -6px 6px 0 0 $c-vzla-red;
+            color: $c-black;
+            text-shadow: -2px 2px 0px transparentize($c-black, .75);
         }
     }
     &-link {
