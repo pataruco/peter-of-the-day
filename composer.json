@@ -13,8 +13,8 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.3.0",
         "league/flysystem-aws-s3-v3": "~1.0",
-        "aws/aws-sdk-php": "~3.0"
-
+        "aws/aws-sdk-php": "~3.0",
+        "ext-exif":"*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -53,8 +53,5 @@
     "config": {
         "preferred-install": "dist",
         "sort-packages": true
-    },
-    "shared": {
-        "exif": "*"
     }
 }
