@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('days.partials.add')
+    @include('days.partials.root')
     <main class="container slider">
         <section class="row slider__panel-top">
             <div class="col-md-10 col-md-offset-1 col-xs-12">
