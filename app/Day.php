@@ -14,8 +14,7 @@ class Day extends Model
         return $this->hasMany('App\File');
     }
 
-    public function saveFiles( $requestAllFiles ) {
-        $fileNumber = 0;
+    public function saveFiles( $requestAllFiles, $fileNumber = 0 ) {
         foreach ( $requestAllFiles['files'] as $uploadedFile  ) {
             $fileNumber++;
             $file = File::create();

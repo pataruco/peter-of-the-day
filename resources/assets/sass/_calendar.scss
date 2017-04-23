@@ -9,10 +9,13 @@
         cursor: pointer;
         font-weight: bolder;
         transition: 1s ease all;
+        text-decoration: none;
         &:hover {
-            color: white;
-            background-color: $c-vzla-blue;
-            text-decoration: none;
+            background-color: $c-vzla-yellow;
+
+            box-shadow: -4px 4px 0 $c-vzla-red;
+            text-shadow: -2px 2px 0px transparentize($c-black, .75);
+            color: black;
         }
     }
 
@@ -48,7 +51,15 @@
     font-weight: bold;
     cursor: pointer;
     transition: .5s ease all;
+    @include default-transition;
+    &:before{
+        text-shadow: -4px 4px 0 $c-grey;
+        @include default-transition;
+    }
     &:hover {
+        &:before {
+            text-shadow: -2px 2px 0 $c-vzla-yellow;
+        }
         color: $c-vzla-red;
     }
 }
@@ -60,7 +71,15 @@
     font-weight: bold;
     cursor: pointer;
     transition: .5s ease all;
+    @include default-transition;
+    &:before{
+        text-shadow: 4px 4px 0 $c-grey;
+        @include default-transition;
+    }
     &:hover {
+        &:before {
+            text-shadow: 2px 2px 0 $c-vzla-yellow;
+        }
         color: $c-vzla-red;
     }
 }

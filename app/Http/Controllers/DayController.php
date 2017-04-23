@@ -88,8 +88,10 @@ class DayController extends Controller
         $this->validate($request, $this->rules() );
         $day = Day::findOrFail( $id );
         $day->update( $request->all() );
+
         if ( $request->hasfile('files') ) {
-            $day->saveFiles( $request->allFiles() );
+            $fileNumber = count( $day->images() );
+            $day->saveFiles( $request->allFiles(), $fileNumber );
         }
         return redirect()
                 ->action('DayController@show', ['id' => $day->id ]);
