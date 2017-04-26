@@ -69,12 +69,13 @@ class Day extends Model
                 $number = random_int( 0 , $max - 1 );
             }
             if ( $number ) {
-                if ( $number >= $max || $number <= -1 ) {
+                if ( $number > $max || $number <= 0 ) {
                     return false;
                 } else {
                     $number = $number -1;
                 }
             }
+
             $image = $day->images()[$number];
             $file = Storage::disk('s3')->get( $image->setPath() );
             if ( $download ) {
