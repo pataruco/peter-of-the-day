@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Day;
 use Illuminate\Http\Request;
 use \App\File;
+use App\Events\CreateDay;
 
 class DayController extends Controller
 {
@@ -42,6 +43,7 @@ class DayController extends Controller
         if ( $request->hasfile('files') ) {
             $day->saveFiles( $request->allFiles() );
         }
+        event( new CreateDay( $day ) );
         return redirect()
                 ->action('DayController@show', ['id' => $day->id ]);
     }
