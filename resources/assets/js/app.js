@@ -15,6 +15,7 @@ require('./bootstrap');
 require('./vendor/clndr.js');
 require('./vendor/slick.js');
 require('./vendor/modaal.js');
+import Pusher from 'pusher-js';
 // ********************************
 // Partials
 // ********************************
