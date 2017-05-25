@@ -14,7 +14,9 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\UserAsAdmin::class,
-        Commands\UserCreate::class,
+        Commands\UserDelete::class,
+        Commands\UserPasswordReset::class,
+        Commands\UserRegister::class,
     ];
 
     /**
