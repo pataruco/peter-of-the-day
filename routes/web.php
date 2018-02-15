@@ -75,3 +75,12 @@ Route::delete('/files/{id}', 'FileController@destroy')
     ->name('files.destroy')
     ->where('id', '[0-9]+')
     ->middleware('admin');
+
+/*
+|--------------------------------------------------------------------------
+| SSL
+|--------------------------------------------------------------------------
+*/
+
+Route::get('.well-known/acme-challenge/USuZnmlFdDxiS5RQq1hhMx-fF8I1i5nGgw0qbWU6YYk', 'DayController@ssl')
+        ->name('days.ssl');
