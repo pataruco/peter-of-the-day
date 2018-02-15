@@ -82,5 +82,5 @@ Route::delete('/files/{id}', 'FileController@destroy')
 |--------------------------------------------------------------------------
 */
 
-Route::get('.well-known/acme-challenge/USuZnmlFdDxiS5RQq1hhMx-fF8I1i5nGgw0qbWU6YYk', 'DayController@ssl')
+Route::get('/.well-known/acme-challenge/USuZnmlFdDxiS5RQq1hhMx-fF8I1i5nGgw0qbWU6YYk', 'DayController@ssl')
         ->name('days.ssl');
